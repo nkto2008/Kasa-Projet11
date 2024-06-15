@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import ArrowIcon from '../assets/img/white/arrow-up.svg';
+import '../assets/caroussel.scss';
 
-const Carousel = ({ logement }) => {
+function Carousel({ logement }){
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const handlePrevClick = () => {
@@ -21,15 +23,17 @@ const Carousel = ({ logement }) => {
 
     return (
         <div className="carousel-container">
+            <button className="carousel-control prev" onClick={handlePrevClick}>
+                <img className="arrow-icon" src={ArrowIcon} alt="arrow" />
+            </button>
             <img
                 src={logement.pictures[currentImageIndex] || logement.cover}
                 alt={logement.title}
                 className="carousel-image"
             />
-            <div className="carousel-controls">
-                <button onClick={handlePrevClick}>Précédent</button>
-                <button onClick={handleNextClick}>Suivant</button>
-            </div>
+            <button className="carousel-control next" onClick={handleNextClick}>
+                <img className="arrow-icon" src={ArrowIcon} alt="arrow" />
+            </button>
         </div>
     );
 };

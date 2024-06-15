@@ -1,0 +1,36 @@
+@import url("fonts.scss");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+}
+
+li{
+    list-style: none;
+}
+
+.t-ou{
+    border: 1px solid red;
+}
+
+.main{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 100px;
+}
+
+@media (max-width: 768px) {
+
+    .main{
+        padding: 20px;
+    }
+}

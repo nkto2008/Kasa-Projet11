@@ -1,0 +1,51 @@
+@import "./constants/color.scss";
+
+.not_found {
+    & {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+    }
+
+    h1 {
+        font-size: 288px;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        color: $main-color;
+        font-style: normal;
+    }
+
+    p {
+        font-size: 36px;
+        color: $main-color;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
+        margin: 75px 0;
+    }
+
+    .lnk {
+        font-size: 18px;
+        text-decoration: underline;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @media (max-width: 768px) {
+
+        h1 {
+            font-size: 144px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+}

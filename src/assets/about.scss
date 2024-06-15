@@ -1,0 +1,136 @@
+@import "./constants/color.scss";
+
+.about {
+    & {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .banner {
+
+        & {
+            position: relative;
+            background-image: url("./img/banner_about.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            width: 100%;
+            margin: 50px 0;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+    }
+
+    .container {
+        & {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container_list {
+            & {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+                margin-bottom: 30px;
+            }
+
+            .list_header {
+                & {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: $main-color;
+                    padding: 15px;
+                    border-radius: 5px;
+                    font-size: 24px;
+                    width: 100%;
+                }
+
+                p {
+                    font-family: "Montserrat", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 600;
+                    color: white;
+                    font-style: normal;
+                }
+
+                img {
+                    transform: rotate(0);
+                    transition: transform 0.3s;
+                }
+
+                &.active img {
+                    transform: rotate(180deg);
+                }
+            }
+
+            .container_description {
+                & {
+                    padding: 10px;
+                    background-color: #f8f8f8;
+                    border-radius: 5px;
+                    color: #555;
+                }
+
+
+                &.open {
+                    max-height: 500px;
+                }
+            }
+
+
+            .description {
+                margin: 0;
+            }
+        }
+
+
+    }
+
+    @media (max-width: 768px) {
+
+        .banner {
+            & {
+                height: 110px;
+            }
+
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        .container {
+
+            .container_list {
+                & {
+                    width: 100%;
+                }
+
+                .list_header {
+                    font-size: 17px;
+                    padding: 10px;
+                }
+
+            }
+
+        }
+
+    }
+}
