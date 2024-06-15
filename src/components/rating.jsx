@@ -1,41 +1,22 @@
 import React from 'react';
+import starFull from '../assets/img/color/star_full.svg';
+import starEmpty from '../assets/img/color/star_empty.svg';
 
-const Rating = ({ rating }) => {
-    //Calculer le nombre d'étoile pleine
-    const fullStars = Math.floor(rating);
-    console.log(fullStars)
-
-    // Vérifier s'il y a un nombre d'étoile décimale
-    const hasHalfStar = rating % 1 !== 0;
-
-    //Calculer le nombre d'étoile vide
-    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    console.log(emptyStars)
+const ratingStars = (rating) => {
+    const totalStars = 5;
+    const fullStars = parseInt(rating);
+    const emptyStars = totalStars - fullStars;
 
     return (
-        <div className="rating-container">
-            {/* étoile pleine */}
-            {Array(fullStars).fill('★').map((star, index) => (
-                <span key={index} className="rating-star">
-                    {star}
-                </span>
+        <>
+            {Array.from({ length: fullStars }, (_, i) => (
+                <img src={starFull} alt="Full Star" key={`full-${i}`} />
             ))}
-
-            {/* moitié étoile */}
-            {hasHalfStar && (
-                <span key="half" className="rating-star">
-                    ½
-                </span>
-            )}
-
-            {/* étoile vide */}
-            {Array(emptyStars).fill('☆').map((star, index) => (
-                <span key={index} className="rating-star">
-                    {star}
-                </span>
+            {Array.from({ length: emptyStars }, (_, i) => (
+                <img src={starEmpty} alt="Empty Star" key={`empty-${i}`} />
             ))}
-        </div>
+        </>
     );
 };
 
-export default Rating;
+export default ratingStars;
