@@ -32,7 +32,7 @@
 
     .carousel-image {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: cover;
     }
 
@@ -62,5 +62,20 @@
     .next {
         right: 10px;
         transform: translateY(-50%) rotate(90deg);
+    }
+
+    .carousel-pagination {
+        position: absolute;
+        bottom: 10px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        z-index: 2;
+        font-size: 18px;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+
+        padding: 5px 10px;
+        border-radius: 10px;
     }
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ArrowIcon from '../assets/img/white/arrow-up.svg';
 import '../assets/caroussel.scss';
 
-function Carousel({ logement }){
+function Carousel({ logement }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const handlePrevClick = () => {
@@ -34,8 +34,13 @@ function Carousel({ logement }){
             <button className="carousel-control next" onClick={handleNextClick}>
                 <img className="arrow-icon" src={ArrowIcon} alt="arrow" />
             </button>
+            <div className="carousel-pagination">
+                {currentImageIndex + 1}/{logement.pictures.length}
+            </div>
         </div>
     );
 };
 
 export default Carousel;
+
+
