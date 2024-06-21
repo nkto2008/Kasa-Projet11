@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './assets/about.scss';
 import arrow from './assets/img/white/arrow-up.svg';
-
+import ContainerSection from './components/container';
 function About() {
     const [activeIndices, setActiveIndices] = useState([]);
 
@@ -39,17 +39,11 @@ function About() {
             <div className='banner'></div>
             <div className='container'>
                 {data.items.map((item, index) => (
-                    <div key={index} className='container_list' onClick={() => handleClick(index)}>
-                        <div className={`list_header ${activeIndices.includes(index) ? 'active' : ''}`}>
-                            <p>{item.title}</p>
-                            <img className="logo" src={arrow} alt="arrow" />
-                        </div>
-                        {activeIndices.includes(index) && (
-                            <div className='container_description'>
-                                <p className='description'>{item.description}</p>
-                            </div>
-                        )}
-                    </div>
+                    <ContainerSection
+                        key={index}
+                        title={item.title}
+                        content={item.description}
+                    />
                 ))}
             </div>
         </div>

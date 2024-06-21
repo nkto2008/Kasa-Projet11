@@ -6,6 +6,7 @@ import ratingStars from "./components/rating";
 import arrow from './assets/img/white/arrow-up.svg';
 import "./assets/accomodation-details.scss";
 import Carousel from "./components/carousel";
+import ContainerSection from './components/container';
 
 function LogementDetail() {
     const { id } = useParams();
@@ -62,35 +63,8 @@ function LogementDetail() {
                 </div>
             </div>
             <div className='container_details'>
-                <div className='container_list'>
-                    <div
-                        className={`list_header ${descriptionOpen ? 'active' : ''}`}
-                        onClick={() => setDescriptionOpen(!descriptionOpen)}
-                    >
-                        <p>Description</p>
-                        <img className="logo" src={arrow} alt="arrow" />
-                    </div>
-                    {descriptionOpen && (
-                        <div className='container_description open'>
-                            <p>{logement.description}</p>
-                        </div>
-                    )}
-                </div>
-                <div className='container_list'>
-                    <div className={`list_header ${equipmentsOpen ? 'active' : ''}`} onClick={() => setEquipmentsOpen(!equipmentsOpen)}>
-                        <p>Équipements</p>
-                        <img className="logo" src={arrow} alt="arrow" />
-                    </div>
-                    {equipmentsOpen && (
-                        <div className='container_description open'>
-                            <ul>
-                                {logement.equipments.map((equipment, index) => (
-                                    <li key={index}>{equipment}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-                </div>
+                <ContainerSection title="Description" content={logement.description} />
+                <ContainerSection title="Équipements" content={logement.equipments} />
             </div>
         </div>
     );
